@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :ecto_integral, key: :value
+#     config :ecto_interval, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:ecto_integral, :key)
+#     Application.get_env(:ecto_interval, :key)
 #
 # Or configure a 3rd-party app:
 #

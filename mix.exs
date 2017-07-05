@@ -1,13 +1,26 @@
-defmodule EctoIntegral.Mixfile do
+defmodule EctoInterval.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ecto_integral,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :ecto_interval,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps(),
+      description: "Interval Type for Ecto",
+      package: package(),
+    ]
+  end
+
+  def package do
+    [
+      licenses: ["MIT"],
+      name: :ecto_interval,
+      maintainers: ["OvermindDL1"],
+      links: %{"Github" => "https://github.com/OvermindDL1/ecto_interval"},
+    ]
   end
 
   # Configuration for the OTP application
@@ -28,6 +41,8 @@ defmodule EctoIntegral.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, ">= 0.0.0", only: :dev},
+    ]
   end
 end
