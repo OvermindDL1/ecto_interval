@@ -4,7 +4,7 @@ defmodule EctoInterval.Mixfile do
   def project do
     [
       app: :ecto_interval,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.4",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -43,6 +43,7 @@ defmodule EctoInterval.Mixfile do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
+      {:postgrex, "~> 0.13.0", optional: true},
     ]
   end
 end

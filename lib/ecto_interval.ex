@@ -49,7 +49,7 @@ if Code.ensure_loaded?(Postgrex) do
   end
 
   defimpl Inspect, for: [Postgrex.Interval] do
-    @inspected inspect(@for)
+    # @inspected inspect(@for)
 
     def inspect(inv, _opts) do
       inspect(Map.from_struct(inv))
@@ -57,10 +57,11 @@ if Code.ensure_loaded?(Postgrex) do
   end
 
   defimpl Phoenix.HTML.Safe, for: [Postgrex.Interval] do
-    @inspected inspect(@for)
+    # @inspected inspect(@for)
 
     def to_iodata(inv) do
       to_string(inv)
     end
   end
+
 end
