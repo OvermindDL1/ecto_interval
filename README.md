@@ -13,3 +13,11 @@ def deps do
 end
 ```
 
+## Usage
+
+Add `require EctoInterval` to your schema files that require it, then just use `EctoInterval` as a field type, like:
+
+```elixir
+    field :renewal_period, EctoInterval, default: %{months: 0, days: 0, secs: 0}
+```
+
