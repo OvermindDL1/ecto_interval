@@ -21,8 +21,4 @@ Just use `EctoInterval` as a field type, like:
     field :renewal_period, EctoInterval, default: %{months: 0, days: 0, secs: 0}
 ```
 
-## Errata
-
-At the time of this writing Mix has a bug that does not put optional dependencies before a dependency in the compile-graph, if this happens you'll see that EctoInterval does not compile, and if that happens then after compiling the deps, clean `ecto_interval` and re-download and compile it without cleaning postgrex, then it will work.  Hopefully this will be fixed soon at:  https://github.com/elixir-lang/elixir/issues/6438
-
 
