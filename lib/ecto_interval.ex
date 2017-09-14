@@ -37,28 +37,24 @@ if Code.ensure_loaded?(Postgrex) do
   defimpl String.Chars, for: [Postgrex.Interval] do
     import Kernel, except: [to_string: 1]
     def to_string(%{:months => months, :days => days, :secs => secs}) do
-      m = if months === 0 do "" else "#{to_string months} months " end
-      d = if days === 0   do "" else "#{to_string days} days " end
-      s = if secs === 0   do "" else "#{to_string secs} seconds " end
+      m = if months === 0 do "" else " #{months} months" end
+      d = if days === 0   do "" else " #{days} days" end
+      s = if secs === 0   do "" else " #{secs} seconds" end
       if months === 0 and days === 0 and secs === 0 do
         "<None>"
       else
-        "Every " <> m <> d <> s
+        "Every#{m}#{d}#{s}"
       end
     end
   end
 
   defimpl Inspect, for: [Postgrex.Interval] do
-    # @inspected inspect(@for)
-
     def inspect(inv, _opts) do
       inspect(Map.from_struct(inv))
     end
   end
 
   defimpl Phoenix.HTML.Safe, for: [Postgrex.Interval] do
-    # @inspected inspect(@for)
-
     def to_iodata(inv) do
       to_string(inv)
     end
