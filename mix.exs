@@ -6,11 +6,11 @@ defmodule EctoInterval.Mixfile do
       app: :ecto_interval,
       version: "0.1.2",
       elixir: "~> 1.4",
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: "Interval Type for Ecto",
-      package: package(),
+      package: package()
     ]
   end
 
@@ -19,7 +19,7 @@ defmodule EctoInterval.Mixfile do
       licenses: ["MIT"],
       name: :ecto_interval,
       maintainers: ["OvermindDL1"],
-      links: %{"Github" => "https://github.com/OvermindDL1/ecto_interval"},
+      links: %{"Github" => "https://github.com/OvermindDL1/ecto_interval"}
     ]
   end
 
@@ -44,7 +44,8 @@ defmodule EctoInterval.Mixfile do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:postgrex, "~> 0.13.0", optional: true},
-      {:phoenix_html, "~> 2.6", optional: true},
+      {:ecto, "~> 2.2", optional: true},
+      {:phoenix_html, "~> 2.6", optional: true}
     ]
   end
 end
