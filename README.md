@@ -21,4 +21,7 @@ Just use `EctoInterval` as a field type, like:
     field :renewal_period, EctoInterval, default: %{months: 0, days: 0, secs: 0}
 ```
 
+## Contributors
+
+- Special thanks to @ibarchenkov for updating to latest implementation!
 
