@@ -3,8 +3,11 @@ defmodule EctoIntervalTest do
   doctest EctoInterval
 
   test "load" do
-    assert {:ok, %Postgrex.Interval{months: 0, days: 0, secs: 0}} = EctoInterval.load(%{months: 0, days: 0, secs: 0})
-    assert {:ok, %Postgrex.Interval{months: 1, days: 2, secs: 3}} = EctoInterval.load(%{months: 1, days: 2, secs: 3})
+    assert {:ok, %Postgrex.Interval{months: 0, days: 0, secs: 0}} =
+             EctoInterval.load(%{months: 0, days: 0, secs: 0})
+
+    assert {:ok, %Postgrex.Interval{months: 1, days: 2, secs: 3}} =
+             EctoInterval.load(%{months: 1, days: 2, secs: 3})
   end
 
   test "to_string" do
