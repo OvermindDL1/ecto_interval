@@ -9,20 +9,36 @@ if Code.ensure_loaded?(Postgrex) do
     def type, do: Postgrex.Interval
 
     @impl true
-    def cast(%{"months" => months, "days" => days, "secs" => secs}) when is_binary(months) do
+    def cast(%{"months" => months, "days" => days, "secs" => secs}) do
+      do_cast(months, days, secs)
+    end
+
+    def cast(%{months: months, days: days, secs: secs}) do
+      do_cast(months, days, secs)
+    end
+
+    def cast(_) do
+      :error
+    end
+
+    defp do_cast(months, days, secs) do
       try do
-        months = String.to_integer(months)
-        days = String.to_integer(days)
-        secs = String.to_integer(secs)
+        months = to_integer(months)
+        days = to_integer(days)
+        secs = to_integer(secs)
         {:ok, %{months: months, days: days, secs: secs}}
       rescue
-        ArgumentError -> :error
+        _ -> :error
       end
     end
 
-    # def cast({months, days, seconds}) do
-    #   %{months: months, days: days, seconds: seconds}
-    # end
+    defp to_integer(arg) when is_binary(arg) do
+      String.to_integer(arg)
+    end
+
+    defp to_integer(arg) when is_integer(arg) do
+      arg
+    end
 
     @impl true
     def load(%{months: months, days: days, secs: secs}) do
@@ -30,7 +46,7 @@ if Code.ensure_loaded?(Postgrex) do
     end
 
     @impl true
-    def dump(%{:months => months, :days => days, :secs => secs}) do
+    def dump(%{months: months, days: days, secs: secs}) do
       {:ok, %Postgrex.Interval{months: months, days: days, secs: secs}}
     end
 
