@@ -45,7 +45,7 @@ defmodule EctoInterval.Mixfile do
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:postgrex, "~> 0.14.0 or ~> 0.15.0", optional: true},
       {:ecto, "~> 3.0", optional: true},
-      {:phoenix_html, "~> 2.12.0", optional: true}
+      {:phoenix_html, "~> 2.12", optional: true}
     ]
   end
 end
