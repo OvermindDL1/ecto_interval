@@ -9,7 +9,7 @@ by adding `ecto_interval` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:ecto_interval, "~> 0.1.0"}]
+  [{:ecto_interval, "~> 0.2.2"}]
 end
 ```
 
