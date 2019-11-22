@@ -3,7 +3,11 @@ if Code.ensure_loaded?(Postgrex) do
     @moduledoc """
     This implements Interval support for Postgrex that used to be in Ecto but no longer is.
     """
-    @behaviour Ecto.Type
+    if macro_exported?(Ecto.Type, :__using__, 1) do
+      use Ecto.Type
+    else
+      @behaviour Ecto.Type
+    end
 
     @impl true
     def type, do: Postgrex.Interval
