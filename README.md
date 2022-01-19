@@ -8,7 +8,7 @@ Interval type for Ecto, currently only implemented for PostgreSQL, PR's to suppo
 by adding `ecto_interval` to your list of dependencies in `mix.exs`:
 
 ```elixir
-    {:ecto_interval, "~> 0.2.2"},
+    {:ecto_interval, "~> 0.2.4"},
 ```
 
 ## Usage
